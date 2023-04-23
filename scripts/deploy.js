@@ -1,11 +1,14 @@
-const { ethers } = require('hardhat')
+const hre = require('hardhat')
 const fs = require('fs')
 
 async function main() {
-  const contract_name = ''
-  const Contract = await ethers.getContractFactory(contract_name)
-  const contract = await Contract.deploy()
+  //הגדרת העמלה- 5 אחוז מהכסף שנאסף בפרויקט
+  const taxFee = 4
+  //נמשוך את החוזה החכם
+  const Contract = await hre.ethers.getContractFactory('crowdready')
+  const contract = await Contract.deploy(taxFee)
 
+  //נבצע העלאה שלו
   await contract.deployed()
 
   const address = JSON.stringify({ address: contract.address }, null, 4)
