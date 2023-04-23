@@ -3,6 +3,12 @@ import address from '../abis/contractAddress.json'
 import { getGlobalState, setGlobalState } from '../store'
 import { ethers } from 'ethers'
 
+
+const Web3 = require('web3');
+const web3 = new Web3('http://localhost:7545');
+console.log(web3.currentProvider.host);
+console.log(web3);
+
 const { ethereum } = window
 const contractAddress = address.address
 const contractAbi = abi.abi
@@ -43,6 +49,7 @@ const isWallectConnected = async () => {
     reportError(error)
   }
 }
+
 
 const getEtheriumContract = async () => {
   const connectedAccount = getGlobalState('connectedAccount')

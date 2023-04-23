@@ -64,7 +64,7 @@ contract crowdready {
         address indexed executor,
         uint256 timestamp
     );
-    //והוא מגדיר את העמלה  ownerהגדרה שמי שיצר את הפרויקט הוא ה-
+    //והוא מגדיר את העמלה  ownerהגדרה שמי שיצר את הפלטפורמה הוא ה-
     constructor(uint _projectTax) {
         owner = msg.sender;
         projectTax = _projectTax;
